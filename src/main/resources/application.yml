@@ -1,8 +1,9 @@
 spring:
   datasource:
-    url: ${JDBC_DATABASE_URL:jdbc:postgresql://localhost:5432/proyecto-biblioteca}
+    url: ${JDBC_DATABASE_URL:jdbc:postgresql://localhost:5432/biblioteca
     username: ${JDBC_DATABASE_USERNAME:postgres}
     password: ${JDBC_DATABASE_PASSWORD:root}
+    driver-class-name: org.postgresql.Driver
     dbcp2:
       max-wait-millis: 30000
       validation-query: select 1
@@ -18,6 +19,9 @@ spring:
             non_contextual_creation: true
         id:
           new_generator_mappings: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
   mvc:
     format:
       date: yyyy-MM-dd

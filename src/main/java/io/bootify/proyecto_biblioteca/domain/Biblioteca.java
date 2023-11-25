@@ -22,28 +22,26 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public abstract class Biblioteca {
 
     @Id
-    @Column(nullable = false, updatable = false)
+    @Column(name = "id_biblioteca",nullable = false, updatable = false)
     @SequenceGenerator(
             name = "primary_sequence",
             sequenceName = "primary_sequence",
-            allocationSize = 1,
-            initialValue = 10000
+            allocationSize = 1
     )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "primary_sequence"
+            strategy = GenerationType.IDENTITY
     )
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "nombre",nullable = false)
     private String nombre;
 
     @CreatedDate
-    @Column(nullable = false, updatable = false)
+    @Column(name = "dateCreated",nullable = false, updatable = false)
     private OffsetDateTime dateCreated;
 
     @LastModifiedDate
-    @Column(nullable = false)
+    @Column(name = "lastUpdated",nullable = false)
     private OffsetDateTime lastUpdated;
 
 }

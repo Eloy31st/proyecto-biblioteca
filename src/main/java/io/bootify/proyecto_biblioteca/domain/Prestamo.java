@@ -21,14 +21,14 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
 @Entity
-@Table(name = "Prestamoes")
+@Table(name = "Prestamos")
 @EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
 public class Prestamo {
 
     @Id
-    @Column(nullable = false, updatable = false)
+    @Column(name ="id_Prestamo",nullable = false, updatable = false)
     @SequenceGenerator(
             name = "primary_sequence",
             sequenceName = "primary_sequence",
@@ -36,15 +36,14 @@ public class Prestamo {
             initialValue = 10000
     )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "primary_sequence"
+            strategy = GenerationType.IDENTITY
     )
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name ="fechaPrestamo",nullable = false)
     private LocalDate fechaPrestamo;
 
-    @Column(nullable = false)
+    @Column(name ="fechaDevolucion",nullable = false)
     private LocalDate fechaDevolucion;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -60,11 +59,11 @@ public class Prestamo {
     private Bibliotecario bibliotecario;
 
     @CreatedDate
-    @Column(nullable = false, updatable = false)
+    @Column(name ="dateCreated",nullable = false, updatable = false)
     private OffsetDateTime dateCreated;
 
     @LastModifiedDate
-    @Column(nullable = false)
+    @Column(name ="lastUpdated",nullable = false)
     private OffsetDateTime lastUpdated;
 
 }

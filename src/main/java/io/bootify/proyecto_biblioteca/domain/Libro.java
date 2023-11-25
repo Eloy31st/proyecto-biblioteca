@@ -22,14 +22,14 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
 @Entity
-@Table(name = "Libroes")
+@Table(name = "Libros")
 @EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
 public class Libro {
 
     @Id
-    @Column(nullable = false, updatable = false)
+    @Column(name ="id_Libro",nullable = false, updatable = false)
     @SequenceGenerator(
             name = "primary_sequence",
             sequenceName = "primary_sequence",
@@ -37,18 +37,17 @@ public class Libro {
             initialValue = 10000
     )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "primary_sequence"
+            strategy = GenerationType.IDENTITY
     )
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name ="Titulo",nullable = false)
     private String titulo;
 
-    @Column(nullable = false)
+    @Column(name ="Autor",nullable = false)
     private String autor;
 
-    @Column(nullable = false)
+    @Column(name ="Estado",nullable = false)
     @Enumerated(EnumType.STRING)
     private Estado estado;
 
@@ -56,11 +55,11 @@ public class Libro {
     private Set<Prestamo> libroPrestamos;
 
     @CreatedDate
-    @Column(nullable = false, updatable = false)
+    @Column(name ="dateCreated",nullable = false, updatable = false)
     private OffsetDateTime dateCreated;
 
     @LastModifiedDate
-    @Column(nullable = false)
+    @Column(name ="lastUpdated",nullable = false)
     private OffsetDateTime lastUpdated;
 
 }
