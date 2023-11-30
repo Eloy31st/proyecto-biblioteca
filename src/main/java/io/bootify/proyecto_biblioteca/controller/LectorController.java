@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
-@RequestMapping("/lectors")
+@RequestMapping("/lectores")
 public class LectorController {
 
     private final LectorService lectorService;
@@ -27,7 +27,7 @@ public class LectorController {
 
     @GetMapping
     public String list(final Model model) {
-        model.addAttribute("lectors", lectorService.findAll());
+        model.addAttribute("lectores", lectorService.findAll());
         return "lector/list";
     }
 
@@ -44,7 +44,7 @@ public class LectorController {
         }
         lectorService.create(lectorDTO);
         redirectAttributes.addFlashAttribute(WebUtils.MSG_SUCCESS, WebUtils.getMessage("lector.create.success"));
-        return "redirect:/lectors";
+        return "redirect:/lectores";
     }
 
     @GetMapping("/edit/{id}")
@@ -62,7 +62,7 @@ public class LectorController {
         }
         lectorService.update(id, lectorDTO);
         redirectAttributes.addFlashAttribute(WebUtils.MSG_SUCCESS, WebUtils.getMessage("lector.update.success"));
-        return "redirect:/lectors";
+        return "redirect:/lectores";
     }
 
     @PostMapping("/delete/{id}")
@@ -74,7 +74,7 @@ public class LectorController {
             lectorService.delete(id);
             redirectAttributes.addFlashAttribute(WebUtils.MSG_INFO, WebUtils.getMessage("lector.delete.success"));
         }
-        return "redirect:/lectors";
+        return "redirect:/lectores";
     }
 
 }
