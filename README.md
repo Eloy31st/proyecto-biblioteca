@@ -1,5 +1,37 @@
 # ProyectoBiblioteca
 
+# Sistema de Gestión de Bibliotecas (LMS) con Hibernate y JPA
+
+## Contexto del Problema
+
+En una biblioteca pública grande, con miles de libros y cientos de lectores, surge la necesidad de gestionar eficientemente operaciones como préstamos, devoluciones, renovaciones y el mantenimiento del catálogo. Para abordar estos desafíos, hemos decidido desarrollar un Sistema de Gestión de Bibliotecas (LMS) que utilice Hibernate y JPA para interactuar con una base de datos SQL, garantizando la eficiencia y seguridad del sistema incluso en situaciones de concurrencia.
+
+## Requisitos Técnicos
+
+1. **Modelo de Datos:**
+   - Diseñar e implementar un modelo de datos que abarque entidades como libros, lectores, préstamos, y otras necesarias para la biblioteca.
+
+2. **Hibernate y JPA:**
+   - Utilizar Hibernate y JPA para mapear las clases de dominio a las tablas de la base de datos.
+
+3. **API Rest:**
+   - Proporcionar una API robusta que permita a los bibliotecarios y lectores realizar operaciones esenciales, como buscar libros, gestionar préstamos, agregar nuevos libros y eliminar los obsoletos. (Consulta [Crear API REST con Spring](https://www.nigmacode.com/java/crear-api-rest-con-spring/))
+
+4. **Control de Concurrencia:**
+   - Implementar mecanismos de control de concurrencia para evitar condiciones de carrera, asegurando operaciones seguras y coherentes.
+
+5. **Auditoría y Control de Versiones:**
+   - Integrar auditoría y control de versiones para rastrear las acciones realizadas en el sistema, identificando quién realiza cada operación y cuándo.
+
+6. **Caché para Rendimiento:**
+   - Utilizar técnicas de caché para mejorar el rendimiento de operaciones comunes, como la búsqueda de libros.
+
+7. **Pruebas:**
+   - Implementar pruebas unitarias e integración para garantizar el correcto funcionamiento de la aplicación bajo diversas circunstancias.
+
+Este proyecto se propone como una solución integral para la gestión eficiente y segura de una biblioteca pública, abordando los desafíos específicos del entorno y proporcionando una experiencia fluida tanto para los bibliotecarios como para los lectores.
+
+
 This app was created with Bootify.io - tips on working with the code [can be found here](https://bootify.io/next-steps/).
 Feel free to contact us for further questions.
 
